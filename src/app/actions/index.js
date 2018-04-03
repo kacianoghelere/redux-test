@@ -4,6 +4,12 @@ export const EDIT_ITEM = 'EDIT_ITEM';
 
 export const REMOVE_ITEM = 'REMOVE_ITEM';
 
+export const RESET_LIST_EDITING = 'RESET_LIST_EDITING';
+
+export const SET_EDITOR_TEXT = 'SET_EDITOR_TEXT';
+
+export const UPDATE_ITEM = 'UPDATE_ITEM';
+
 export const CHANGE_VALUE = 'CHANGE_VALUE';
 
 export const DECREMENT = 'DECREMENT';
@@ -19,17 +25,31 @@ export const changeValue = (event) => ({
   payload: event.target.value
 });
 
-export const addItem = (item) => ({
+export const addItem = (payload) => ({
   type: ADD_ITEM,
-  payload: item
+  payload
 });
 
-export const editItem = (item) => ({
+export const editItem = (payload) => ({
   type: EDIT_ITEM,
-  payload: item
+  payload
 });
 
-export const removeItem = (item) => ({
+export const removeItem = (payload) => ({
   type: REMOVE_ITEM,
-  payload: item
+  payload
+});
+
+export const resetListEditing = () => ({
+  type: RESET_LIST_EDITING
+});
+
+export const setEditorText = (payload) => ({
+  type: SET_EDITOR_TEXT,
+  payload
+});
+
+export const updateItem = (payload) => ({
+  type: UPDATE_ITEM,
+  payload
 });
