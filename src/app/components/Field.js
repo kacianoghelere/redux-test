@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import { changeValue } from '../actions';
 
@@ -28,8 +27,6 @@ class Field extends React.Component {
 
 const mapStateToProps = (store) => ({ value: store.field.value });
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({
-  changeValue
-}, dispatch);
+const mapDispatchToProps = { changeValue };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Field);

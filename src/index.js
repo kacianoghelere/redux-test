@@ -8,6 +8,8 @@ import counterReducer from './app/reducers/counterReducer';
 import fieldReducer from './app/reducers/fieldReducer';
 import listReducer from './app/reducers/listReducer';
 
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 import App from './App';
 
 const reducers = combineReducers({
@@ -16,9 +18,11 @@ const reducers = combineReducers({
   list: listReducer
 });
 
+const store = createStore(reducers, composeWithDevTools());
+
 ReactDOM.render(
   (
-    <Provider store={createStore(reducers)}>
+    <Provider store={store}>
       <App />
     </Provider>
   )

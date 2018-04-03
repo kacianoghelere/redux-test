@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import { addItem, editItem, removeItem } from '../actions';
 
@@ -70,10 +69,10 @@ class List extends React.Component {
 
 const mapStateToProps = (store) => ({ list: store.list });
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({
+const mapDispatchToProps = {
   addItem,
   editItem,
   removeItem
-}, dispatch);
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);
