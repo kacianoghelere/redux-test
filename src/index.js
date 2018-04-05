@@ -6,7 +6,9 @@ import { Provider } from 'react-redux';
 
 import counterReducer from './app/reducers/counterReducer';
 import fieldReducer from './app/reducers/fieldReducer';
-import listReducer from './app/reducers/listReducer';
+import taskListReducer from './app/reducers/taskListReducer';
+import 'bootstrap-css-only/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.css';
 
 import { composeWithDevTools } from 'redux-devtools-extension';
 
@@ -15,7 +17,7 @@ import App from './App';
 const reducers = combineReducers({
   counter: counterReducer,
   field: fieldReducer,
-  list: listReducer
+  taskList: taskListReducer
 });
 
 const store = createStore(reducers, composeWithDevTools());

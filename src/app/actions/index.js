@@ -1,20 +1,12 @@
-export const ADD_ITEM = 'ADD_ITEM';
-
-export const EDIT_ITEM = 'EDIT_ITEM';
-
-export const REMOVE_ITEM = 'REMOVE_ITEM';
-
-export const RESET_LIST_EDITING = 'RESET_LIST_EDITING';
-
-export const SET_EDITOR_TEXT = 'SET_EDITOR_TEXT';
-
-export const UPDATE_ITEM = 'UPDATE_ITEM';
-
-export const CHANGE_VALUE = 'CHANGE_VALUE';
-
-export const DECREMENT = 'DECREMENT';
-
-export const INCREMENT = 'INCREMENT';
+import {
+  DECREMENT,
+  INCREMENT,
+  CHANGE_VALUE,
+  ADD_TASK,
+  REMOVE_TASK,
+  TOGGLE_TASK,
+  CHANGE_EDITOR_TEXT
+} from './actioNames';
 
 export const decrementValue = () => ({ type: DECREMENT });
 
@@ -25,31 +17,22 @@ export const changeValue = (event) => ({
   payload: event.target.value
 });
 
-export const addItem = (payload) => ({
-  type: ADD_ITEM,
+export const addTask = (payload) => ({
+  type: ADD_TASK,
   payload
 });
 
-export const editItem = (payload) => ({
-  type: EDIT_ITEM,
+export const removeTask = (payload) => ({
+  type: REMOVE_TASK,
   payload
 });
 
-export const removeItem = (payload) => ({
-  type: REMOVE_ITEM,
+export const toggleTask = (payload) => ({
+  type: TOGGLE_TASK,
   payload
 });
 
-export const resetListEditing = () => ({
-  type: RESET_LIST_EDITING
-});
-
-export const setEditorText = (payload) => ({
-  type: SET_EDITOR_TEXT,
-  payload
-});
-
-export const updateItem = (payload) => ({
-  type: UPDATE_ITEM,
+export const changeEditorText = (payload) => ({
+  type: CHANGE_EDITOR_TEXT,
   payload
 });

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Counter from './app/components/Counter';
 import Field from './app/components/Field';
-import List from './app/components/List';
+import TodoList from './app/components/TodoList';
 
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
       <div>
         <Counter />
         <Field />
-        <List />
+        <TodoList />
       </div>
     );
   }
