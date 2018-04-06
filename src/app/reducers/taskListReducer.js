@@ -10,56 +10,70 @@ const INITITAL_STATE = {
   tasks: []
 };
 
-const taskListReducer = (state = INITITAL_STATE, action) => {
-  const { payload } = action;
+const changeEditorText = (state, { payload }) => {
+  return {
+    ...state,
+    editorText: payload
+  };
+};
 
-  switch (action.type) {
-    case CHANGE_EDITOR_TEXT:
-      console.log(CHANGE_EDITOR_TEXT, payload);
-      return {
-        ...state,
-        editorText: payload
-      };
-    case ADD_TASK:
-      console.log(ADD_TASK, payload);
-      if (!payload) {
-        return state;
+const addTask = (state, { payload }) => {
+  if (!payload) {
+    return state;
+  }
+
+  const newTasks = state.tasks.slice();
+
+  return {
+    ...state,
+    editorText: '',
+    tasks: [
+      ...newTasks,
+      {
+        text: payload,
+        done: false
+      }
+    ]
+  };
+};
+
+const removeTask = (state, { payload }) => {
+  const newTasks = state.tasks.slice();
+
+  return {
+    ...state,
+    tasks: newTasks.filter((task, index) => index !== payload)
+  };
+};
+
+const toggleTask = (state, { payload }) => {
+  const newTasks = state.tasks.slice();
+
+  return {
+    ...state,
+    tasks: newTasks.map((task, index) => {
+      if (index === payload) {
+        return {
+          ...task,
+          done: !task.done
+        };
       }
 
-      const { tasks } = state;
+      return task;
+    })
+  };
+};
 
-      return {
-        ...state,
-        editorText: '',
-        tasks: [
-          ...tasks,
-          {
-            text: payload,
-            done: false
-          }
-        ]
-      };
+const taskListReducer = (state = INITITAL_STATE, action) => {
+  switch (action.type) {
+    case CHANGE_EDITOR_TEXT:
+      return changeEditorText(state, action);
+    case ADD_TASK:
+      return addTask(state, action);
     case REMOVE_TASK:
-      console.log(REMOVE_TASK, payload);
-      return {
-        ...state,
-        tasks: state.tasks.filter((task, index) => index !== payload)
-      };
+      return removeTask(state, action);
     case TOGGLE_TASK:
-      console.log(TOGGLE_TASK, payload);
-      return {
-        ...state,
-        tasks: state.tasks.map((task, index) => {
-          if (index === payload) {
-            return {
-              ...task,
-              done: !task.done
-            };
-          }
-
-          return task;
-        })
-      };
+      return toggleTask(state, action);
     default:
       return state;
   }
