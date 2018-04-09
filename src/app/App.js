@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
-import Counter from './app/components/Counter';
-import Field from './app/components/Field';
-import TodoList from './app/components/TodoList';
+import Counter from './components/Counter';
+import Field from './components/Field';
+import TodoList from './components/TodoList';
+import AsyncList from './components/AsyncList';
 
 
 class App extends Component {
@@ -12,6 +13,7 @@ class App extends Component {
         <Counter />
         <Field />
         <TodoList />
+        <AsyncList />
       </div>
     );
   }

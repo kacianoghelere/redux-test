@@ -1,4 +1,4 @@
-import { CHANGE_VALUE } from '../actions/actioNames';
+import { CHANGE_VALUE } from '../actions';
 
 const INITITAL_STATE = { value: '' };
 
