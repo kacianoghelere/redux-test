@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+import { database } from '../../firebase';
 
 export const DECREMENT = 'DECREMENT';
 
@@ -62,4 +63,12 @@ export const FETCH_USERS = 'FETCH_USERS';
 export const fetchUsers = () => ({
   type: FETCH_USERS,
   payload: axios.get('https://randomuser.me/api/?nat=br&results=5')
+});
+
+
+export const ADD_USER = 'ADD_USER';
+
+export const addUser = (user) => ({
+  type: ADD_USER,
+  payload: database.push(user)
 });
