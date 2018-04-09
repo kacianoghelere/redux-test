@@ -3,7 +3,7 @@ import {
   REMOVE_TASK,
   TOGGLE_TASK,
   CHANGE_EDITOR_TEXT
-} from '../actions/actioNames';
+} from '../actions';
 
 const INITITAL_STATE = {
   editorText: '',
